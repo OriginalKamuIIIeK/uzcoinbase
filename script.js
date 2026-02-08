@@ -1,4 +1,4 @@
-let currentLanguage = 'ru';
+let currentLanguage = 'uz';
 
 
 // Статичный пароль (измените его на свой)
@@ -123,6 +123,16 @@ function updateLanguage(lang) {
     }
   });
   
+  // Специально обновляем кнопку с иконой для warning
+  const understandButton = document.getElementById('understandButton');
+  if (understandButton && translations[lang] && translations[lang]['warning_button']) {
+    understandButton.textContent = '';
+    const icon = document.createElement('i');
+    icon.className = 'fa-solid fa-check';
+    understandButton.appendChild(icon);
+    understandButton.appendChild(document.createTextNode(' ' + translations[lang]['warning_button']));
+  }
+  
   // Сохраняем выбор в localStorage
   localStorage.setItem('preferredLanguage', lang);
   
@@ -177,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupPasswordModal();
     
     // Загрузка сохраненного языка
-    const savedLanguage = localStorage.getItem('preferredLanguage') || 'ru';
+    const savedLanguage = localStorage.getItem('preferredLanguage') || 'uz';
     updateLanguage(savedLanguage);
 
     const sendModal = document.getElementById('sendModal');

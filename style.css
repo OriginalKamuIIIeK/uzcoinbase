@@ -122,19 +122,47 @@ body {
     padding: 20px;
 }
 
+#passwordModal .password-modal-content {
+    background: linear-gradient(135deg, #1a1f2e, #2d3746);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.password-modal-body {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.password-modal-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #a0aec0;
+    margin-bottom: 20px;
+}
+
 #passwordInput {
     width: 100%;
-    padding: 12px;
-    margin: 15px 0;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
+    padding: 14px;
+    margin: 20px 0;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
     font-size: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
     box-sizing: border-box;
+    transition: all 0.3s ease;
+    font-family: inherit;
 }
 
 #passwordInput:focus {
     outline: none;
-    border-color: #4a90e2;
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+}
+
+#passwordInput::placeholder {
+    color: #4a5568;
 }
 
 .modal-footer {
