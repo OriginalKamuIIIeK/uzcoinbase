@@ -1,0 +1,1514 @@
+/* Общие стили и сброс */
+body {
+    background-color: #0d111c; 
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; 
+    min-height: 100vh;
+}
+/* Стили для формы приветствия */
+.password-setup-content {
+    max-width: 380px;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1f2e, #2d3746);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.password-setup-body {
+    padding: 40px 30px 30px;
+}
+
+.password-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    position: relative;
+}
+
+.password-icon::after {
+    content: '';
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    animation: pulse 2s infinite;
+}
+/* Стили для окна предупреждения */
+.warning-content {
+    max-width: 400px;
+    text-align: center;
+}
+
+.warning-body {
+    padding: 20px;
+}
+
+.warning-icon {
+    font-size: 48px;
+    color: #ffa500;
+    margin-bottom: 20px;
+}
+
+.warning-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #e90606;
+}
+
+.warning-list {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.warning-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff9e6;
+    border-radius: 8px;
+    border-left: 4px solid #ffa500;
+}
+
+.warning-item i {
+    color: #ffa500;
+    margin-right: 10px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.warning-item span {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666;
+}
+
+.warning-agreement {
+    font-size: 14px;
+    color: #666;
+    margin: 20px 0;
+    font-style: italic;
+}
+
+.warning-submit-btn {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.warning-submit-btn:hover {
+    background: linear-gradient(135deg, #ff8c00, #ff7700);
+}
+
+/* Анимация появления */
+
+/* Стили для окна пароля */
+#passwordModal .modal-content {
+    max-width: 400px;
+    padding: 20px;
+}
+
+#passwordInput {
+    width: 100%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+#passwordInput:focus {
+    outline: none;
+    border-color: #4a90e2;
+}
+
+.modal-footer {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.modal-body p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 10px;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.warning-content {
+    animation: shake 0.5s ease-in-out;
+}
+@keyframes pulse {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.2); opacity: 0; }
+}
+
+.password-icon i {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.modal-header h2 {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ffffff, #a0aec0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.password-description {
+    color: #cbd5e0;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.password-input-container {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#passwordInput {
+    width: 100%;
+    padding: 20px;
+    font-size: 28px;
+    text-align: center;
+    letter-spacing: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    color: #ffffff;
+    font-weight: 700;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#passwordInput:focus {
+    border-color: #667eea;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+    outline: none;
+}
+
+#passwordInput::placeholder {
+    letter-spacing: 15px;
+    color: #4a5568;
+    font-weight: 400;
+}
+
+.password-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 12px;
+    font-size: 14px;
+    color: #a3bffa;
+    backdrop-filter: blur(10px);
+}
+
+.password-hint i {
+    font-size: 16px;
+    color: #667eea;
+}
+
+.password-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 18px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 14px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.password-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+}
+
+.password-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Анимация появления */
+@keyframes modalEnter {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.password-setup-content {
+    animation: modalEnter 0.6s ease-out;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .password-setup-body {
+        padding: 30px 20px 25px;
+    }
+    
+    .password-icon {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .password-icon i {
+        font-size: 32px;
+    }
+    
+    #passwordInput {
+        font-size: 24px;
+        padding: 18px;
+    }
+}
+/* Контейнер, имитирующий экран мобильного устройства */
+.mobile-container {
+    width: 100%;
+    max-width: 420px; 
+    background-color: #000000; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px; 
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* 1. Верхняя панель (Шапка) - Без изменений */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 14px;
+    color: #9aa3af; 
+}
+
+.header .user-id i {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+.header .icons i {
+    margin-left: 15px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* 2. Область баланса - Восстановление двух кнопок */
+.balance-section {
+    padding: 10px 20px 20px;
+}
+
+.balance-amount {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.actions {
+    /* Восстанавливаем разделение между кнопками */
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    flex: 1; /* Обе кнопки занимают по половине */
+    padding: 12px 0;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Стиль для новой кнопки "Отправить" (используем градиент "Купить") */
+.btn-send {
+    background-image: linear-gradient(to right, #0077ff, #00bfff); 
+    color: #ffffff;
+}
+
+/* Стиль для кнопки "Обмен" */
+.btn-exchange {
+    background-color: #2b303a; 
+    color: #ffffff;
+}
+
+/* 3. Панель вкладок - Без изменений */
+.tabs-nav {
+    display: flex;
+    padding: 15px 20px 0;
+    border-bottom: 1px solid #2b303a;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 0 15px 15px 0;
+    color: #9aa3af;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+}
+
+.tab.active {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60%;
+    height: 3px;
+    background-color: #0077ff;
+    border-radius: 2px;
+}
+
+/* 4. Фильтр "Все сети" - Без изменений */
+.filters {
+    padding: 0 20px 10px;
+}
+
+.all-networks {
+    background-color: #2b303a;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.all-networks i {
+    font-size: 10px;
+    margin-left: 5px;
+}
+
+/* 5. Блок актива (WrappedARC) - Без изменений */
+.asset-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.asset-info {
+    display: flex;
+    align-items: center;
+}
+
+.asset-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ffc107; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5); 
+}
+
+.asset-icon i {
+    color: #a0522d; 
+    font-size: 20px;
+}
+
+.asset-name {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.asset-change {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 3px;
+    display: flex;
+    align-items: center;
+}
+
+.asset-change.negative {
+    color: #ff4500; 
+}
+
+.asset-change i {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.asset-value {
+    text-align: right;
+}
+
+.uzs-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.warс-value {
+    font-size: 14px;
+    color: #9aa3af;
+    margin-top: 3px;
+}
+
+/* 6. Нижняя навигационная панель - Остается минималистичной */
+.bottom-nav {
+    position: fixed; 
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 420px; 
+    height: 60px;
+    background-color: #1a1a1a; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    border-top: 1px solid #2b303a;
+}
+
+.bottom-nav i {
+    color: #9aa3af;
+    cursor: pointer;
+    font-size: 28px; 
+}
+
+.bottom-nav i.active-nav {
+    color: #0077ff; 
+}
+
+/* Стили для модальных окон */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  background-color: #1a1f2e;
+  margin: 10% auto;
+  padding: 0;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation: slideIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Заголовок модального окна */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 15px;
+  border-bottom: 1px solid #2b303a;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.close {
+  color: #9aa3af;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #ffffff;
+}
+
+/* Форма */
+#sendForm {
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #9aa3af;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #2b303a;
+  border: 1px solid #3a4150;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #0077ff;
+}
+
+/* Кнопка подтверждения */
+.btn-submit {
+  width: 100%;
+  padding: 15px;
+  background-image: linear-gradient(to right, #0077ff, #00bfff);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  opacity: 0.9;
+}
+
+/* Стили для окна загрузки */
+.loading-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.spinner {
+  border: 4px solid #2b303a;
+  border-top: 4px solid #0077ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-content p {
+  margin: 0;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Стили для окна результата */
+.result-content {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.result-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #ff6b35;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+}
+
+.result-icon i {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.result-content h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.result-content p {
+  margin: 0 0 25px;
+  color: #9aa3af;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.btn-support {
+  padding: 14px 25px;
+  background-color: #0077ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-support:hover {
+  background-color: #0066dd;
+}
+
+/* Стили для детального окна актива */
+.asset-card {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.asset-card:hover {
+  background-color: rgba(43, 48, 58, 0.3);
+}
+
+.asset-detail-content {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.asset-detail-main {
+  padding: 0 20px 20px;
+}
+
+.asset-detail-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #2b303a;
+}
+
+.asset-detail-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ffc107;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.6);
+}
+
+.asset-detail-icon i {
+  color: #a0522d;
+  font-size: 24px;
+}
+
+.asset-detail-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.asset-detail-price {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.asset-detail-change {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.asset-detail-change.negative {
+  color: #ff4500;
+}
+
+.asset-detail-change.positive {
+  color: #00ff7f;
+}
+
+/* Статистика */
+.asset-stats {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: rgba(43, 48, 58, 0.5);
+  border-radius: 12px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #2b303a;
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: #9aa3af;
+  font-size: 14px;
+}
+
+.stat-value {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* График */
+.price-chart {
+  margin: 25px 0;
+  background-color: rgba(43, 48, 58, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #9aa3af;
+}
+
+.chart-period {
+  background-color: #2b303a;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+}
+
+.chart-container {
+  width: 100%;
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-area {
+  stroke: none;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: #6b7280;
+}
+
+/* Кнопки действий */
+.asset-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn-action {
+  flex: 1;
+  padding: 12px 8px;
+  background-color: #2b303a;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-action:hover {
+  background-color: #3a4150;
+}
+
+.btn-action i {
+  font-size: 16px;
+}
+
+.btn-send-action {
+  color: #0077ff;
+}
+
+.btn-receive-action {
+  color: #00ff7f;
+}
+
+.btn-swap-action {
+  color: #ffa500;
+}
+
+/* История транзакций */
+.transaction-history h3 {
+  margin: 25px 0 15px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.transaction-list {
+  background-color: rgba(43, 48, 58, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #2b303a;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+  font-size: 14px;
+}
+
+.transaction-icon.received {
+  background-color: rgba(0, 255, 127, 0.2);
+  color: #00ff7f;
+}
+
+.transaction-icon.sent {
+  background-color: rgba(255, 69, 0, 0.2);
+  color: #ff4500;
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-type {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.transaction-date {
+  font-size: 12px;
+  color: #9aa3af;
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.transaction-amount.positive {
+  color: #00ff7f;
+}
+
+.transaction-amount.negative {
+  color: #ff4500;
+}
+
+
+/* Стили для окна выбора валюты */
+.currency-list {
+  padding: 20px;
+}
+
+.currency-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #2b303a;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 2px solid transparent;
+}
+
+.currency-item:hover {
+  background-color: #3a4150;
+}
+
+.currency-item.selected {
+  border-color: #0077ff;
+  background-color: rgba(0, 119, 255, 0.1);
+}
+
+.currency-info {
+  display: flex;
+  align-items: center;
+}
+
+.currency-flag {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.currency-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.currency-name {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.currency-code {
+  font-size: 14px;
+  color: #9aa3af;
+}
+
+.currency-check {
+  color: #0077ff;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.currency-item.selected .currency-check {
+  opacity: 1;
+}
+
+.btn-confirm-currency {
+  width: calc(100% - 40px);
+  margin: 10px 20px 20px;
+  padding: 15px;
+  background-image: linear-gradient(to right, #0077ff, #00bfff);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.btn-confirm-currency:hover {
+  opacity: 0.9;
+}
+
+.btn-confirm-currency:disabled {
+  background: #2b303a;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+/* Стили для модальных окон - ИСПРАВЛЕННЫЕ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10000; /* Увеличиваем z-index */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  background-color: #1a1f2e;
+  margin: 15% auto;
+  padding: 0;
+  border-radius: 16px;
+  width: 85%;
+  max-width: 400px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+  animation: slideIn 0.3s;
+  position: relative;
+  z-index: 10001;
+}
+
+/* Стили для выпадающего меню настроек */
+.settings-menu {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100vh;
+  background-color: #1a1f2e;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  z-index: 10002;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-menu.active {
+  right: 0;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10001;
+  display: none;
+}
+
+.menu-overlay.active {
+  display: block;
+}
+
+.menu-header {
+  padding: 30px 25px 20px;
+  border-bottom: 1px solid #2b303a;
+  background: linear-gradient(135deg, #0077ff, #00bfff);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.profile-avatar i {
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.profile-id {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.menu-section {
+  padding: 20px 25px;
+  border-bottom: 1px solid #2b303a;
+}
+
+.menu-section:last-child {
+  border-bottom: none;
+}
+
+.menu-section h3 {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  color: #9aa3af;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  color: #ffffff;
+  cursor: pointer;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.menu-item.non-clickable {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.menu-item:not(.non-clickable):hover {
+  color: #0077ff;
+}
+
+.menu-item i {
+  width: 20px;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+.menu-item.logout {
+  color: #ff6b6b;
+}
+
+.menu-item.logout:hover {
+  color: #ff5252;
+}
+
+/* Переключатель темы */
+.theme-switch {
+  margin-left: auto;
+}
+
+.switch-track {
+  width: 50px;
+  height: 24px;
+  background-color: #2b303a;
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.switch-track.active {
+  background-color: #0077ff;
+}
+
+.switch-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.switch-track.active .switch-thumb {
+  transform: translateX(26px);
+}
+
+/* Выбор языка */
+.language-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.language-option {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: #2b303a;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 2px solid transparent;
+}
+
+.language-option:hover {
+  background-color: #3a4150;
+}
+
+.language-option.active {
+  border-color: #0077ff;
+  background-color: rgba(0, 119, 255, 0.1);
+}
+
+.language-flag {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+.language-option span:not(.language-flag) {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.language-option i {
+  color: #0077ff;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.language-option.active i {
+  opacity: 1;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 480px) {
+  .settings-menu {
+    width: 300px;
+    right: -300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .settings-menu {
+    width: 280px;
+    right: -280px;
+  }
+}
+
+
+/* Стили для уведомления о смене языка */
+.language-notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: linear-gradient(135deg, #0077ff, #00bfff);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  box-shadow: 0 5px 20px rgba(0, 119, 255, 0.4);
+  z-index: 10003;
+  transition: transform 0.3s ease;
+}
+
+.language-notification.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.notification-content i {
+  font-size: 18px;
+}
+
+/* Стили для контента вкладок */
+.crypto-content, .partners-content {
+    display: none;
+    padding: 0 20px;
+}
+
+.crypto-content.active-content, 
+.partners-content.active-content {
+    display: block;
+}
+
+/* Стили для сетки партнеров */
+.partners-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.partner-card {
+    background: linear-gradient(135deg, #2b303a, #3a4150);
+    border-radius: 16px;
+    padding: 20px 15px;
+    text-align: center;
+    border: 1px solid #3a4150;
+    transition: transform 0.3s, border-color 0.3s;
+    cursor: pointer;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    border-color: #0077ff;
+}
+
+.partner-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.partner-logo.binance {
+    background: linear-gradient(135deg, #f0b90b, #f8d33a);
+    color: #000;
+}
+
+.partner-logo.alhamdulillah {
+    background: linear-gradient(135deg, #00bfff, #0077ff);
+    color: #fff;
+}
+
+.partner-logo.arc {
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    color: #fff;
+}
+
+.partner-logo.crypto {
+    background: linear-gradient(135deg, #00d2be, #00b3a7);
+    color: #fff;
+}
+
+.partner-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.partner-desc {
+    font-size: 12px;
+    color: #9aa3af;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.partner-benefit {
+    font-size: 11px;
+    color: #00ff7f;
+    font-weight: 500;
+    background: rgba(0, 255, 127, 0.1);
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* Стили для преимуществ */
+.partners-benefits {
+    background: rgba(43, 48, 58, 0.5);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.partners-benefits h3 {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.benefit-item i {
+    color: #0077ff;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+.benefit-item span {
+    font-size: 14px;
+    color: #e0e0e0;
+    flex: 1;
+}
+
+/* Стили для скрытия стрелок в числовых полях ввода */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Дополнительные стили для полей ввода */
+.form-group input[type="number"],
+.form-group input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #2b303a;
+    border: 1px solid #3a4150;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.form-group input[type="number"]:focus,
+.form-group input[type="text"]:focus {
+    outline: none;
+    border-color: #0077ff;
+}
+/*  партнёры
+
+

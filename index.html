@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="rg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="app_title">Crypto Wallet - Send & Exchange</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Окно ввода пароля -->
+<div id="passwordModal" class="modal" style="display: block;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Вход в кошелек</h2>
+        </div>
+        <div class="modal-body">
+            <p>Введите пароль для доступа к кошельку</p>
+            <input type="password" id="passwordInput" placeholder="Введите пароль" />
+            <p id="passwordError" style="color: red; display: none; margin-top: 10px;">Неверный пароль. Попробуйте снова.</p>
+        </div>
+        <div class="modal-footer">
+            <button id="submitPassword" class="btn-submit">Войти</button>
+        </div>
+    </div>
+</div>
+    <!-- Модальное окно с предупреждением -->
+    <div id="warningModal" class="modal" style="display: block;">
+        <div class="modal-content warning-content">
+            <div class="modal-header">
+                <h2>⚠️ Важное предупреждение</h2>
+            </div>
+
+            <div class="warning-body">
+                <div class="warning-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+
+                <p class="warning-text">
+                    <strong>Внимание!</strong> Эта ссылка предоставляет доступ к вашему личному кошельку.
+                </p>
+
+                <div class="warning-list">
+                    <div class="warning-item">
+                        <i class="fa-solid fa-shield"></i>
+                        <span>Не передавайте эту ссылку третьим лицам</span>
+                    </div>
+                    <div class="warning-item">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>При передаче ссылки мы не гарантируем сохранность вашего вклада</span>
+                    </div>
+                    <div class="warning-item">
+                        <i class="fa-solid fa-user-secret"></i>
+                        <span>Храните ссылку в безопасном месте</span>
+                    </div>
+                </div>
+
+                <p class="warning-agreement">
+                    Нажимая "Понятно", вы подтверждаете, что осознаёте риски
+                </p>
+
+                <button id="understandButton" class="btn-submit warning-submit-btn">
+                    <i class="fa-solid fa-check"></i>
+                    Понятно
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-container" style="display: none;">
+
+        <header class="header">
+            <div class="user-id" data-key="user_id">Alhamdulillah Fond<i class="fa-solid fa-chevron-down"></i></div>
+            <div class="icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-gear"></i>
+            </div>
+        </header>
+
+        <div class="balance-section">
+            <div class="balance-amount" data-key="balance">KGS 112,381</div>
+            <div class="actions">
+                <button class="btn btn-send" data-key="send">Отправить</button>
+                <button class="btn btn-exchange" data-key="exchange">Обмен</button>
+            </div>
+        </div>
+
+        <!-- ОБНОВЛЕННАЯ НАВИГАЦИЯ -->
+        <nav class="tabs-nav">
+            <span class="tab active" data-key="crypto">Криптовалюта</span>
+            <span class="tab" data-key="partners">Партнёры</span>
+        </nav>
+
+        <div class="filters">
+            <div class="all-networks" data-key="all_networks">Все сети <i class="fa-solid fa-chevron-down"></i></div>
+        </div>
+
+        <!-- КОНТЕНТ КРИПТОВАЛЮТЫ -->
+        <div class="crypto-content active-content">
+            <div class="asset-card">
+                <div class="asset-info">
+                    <div class="asset-icon">
+                        <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                    </div>
+                    <div class="asset-details">
+                        <div class="asset-name" data-key="wrapped_arc">WrappedARC</div>
+                        <div class="asset-change negative">
+                            <i class="fa-solid fa-arrow-down"></i> <span data-key="change">0,01 %</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="asset-value">
+                    <div class="uzs-value">KGS 112.31k</div>
+                    <div class="warс-value">88,28...63.23 WARC</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- КОНТЕНТ ПАРТНЕРОВ -->
+        <div class="partners-content">
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-logo binance">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <div class="partner-name" data-key="binance_name">Binance</div>
+                    <div class="partner-desc" data-key="binance_desc">Крупнейшая криптобиржа</div>
+                    <div class="partner-benefit" data-key="binance_benefit">Скидка 20% на торговые комиссии</div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo alhamdulillah">
+                        <i class="fa-solid fa-hands-holding-circle"></i>
+                    </div>
+                    <div class="partner-name" data-key="alhamdulillah_name">Alhamdulillah Fund</div>
+                    <div class="partner-desc" data-key="alhamdulillah_desc">Исламский инвестиционный фонд</div>
+                    <div class="partner-benefit" data-key="alhamdulillah_benefit">До 15% годовых</div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo arc">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <div class="partner-name" data-key="arc_name">ARC Network</div>
+                    <div class="partner-desc" data-key="arc_desc">Блокчейн платформа</div>
+                    <div class="partner-benefit" data-key="arc_benefit">Стейкинг с APY 12%</div>
+                </div>
+
+                <div class="partner-card">
+                    <div class="partner-logo crypto">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <div class="partner-name" data-key="crypto_name">Crypto.com</div>
+                    <div class="partner-desc" data-key="crypto_desc">Крипто-кошелек и карты</div>
+                    <div class="partner-benefit" data-key="crypto_benefit">Кэшбэк до 8%</div>
+                </div>
+            </div>
+
+            <div class="partners-benefits">
+                <h3 data-key="partners_benefits_title">Преимущества для держателей WARC</h3>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-percentage"></i>
+                        <span data-key="benefit_1">Сниженные комиссии у всех партнеров</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-gift"></i>
+                        <span data-key="benefit_2">Эксклюзивные бонусы и акции</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span data-key="benefit_3">Приоритетная поддержка</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span data-key="benefit_4">Ранний доступ к новым продуктам</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Выпадающее меню настроек -->
+        <div id="settingsMenu" class="settings-menu">
+            <div class="menu-header">
+                <div class="user-profile">
+                    <div class="profile-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <div class="profile-name">mijoz005781</div>
+                        <div class="profile-id">ID: cb.id</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3 data-key="profile">Профиль</h3>
+                <div class="menu-item non-clickable">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span data-key="balance_label">Баланс: KGS 112,381</span>
+                </div>
+                <div class="menu-item non-clickable">
+                    <i class="fa-solid fa-wallet"></i>
+                    <span>WARC: 88.2863</span>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3 data-key="settings">Настройки</h3>
+                <div class="menu-item">
+                    <i class="fa-solid fa-shield"></i>
+                    <span data-key="security">Безопасность</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-bell"></i>
+                    <span data-key="notifications">Уведомления</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-moon"></i>
+                    <span data-key="dark_theme">Темная тема</span>
+                    <div class="theme-switch">
+                        <div class="switch-track">
+                            <div class="switch-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3 data-key="language">Язык</h3>
+                <div class="language-selector">
+                    <div class="language-option active" data-lang="ru">
+                        <span class="language-flag">🇷🇺</span>
+                        <span>Русский</span>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="language-option" data-lang="en">
+                        <span class="language-flag">🇺🇸</span>
+                        <span>English</span>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="language-option" data-lang="uz">
+                        <span class="language-flag">🇺🇿</span>
+                        <span>O'zbek</span>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="language-option" data-lang="kg">
+                        <span class="language-flag">🇰🇬</span>
+                        <span>Кыргызча</span>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="language-option" data-lang="tj">
+                        <span class="language-flag">🇹🇯</span>
+                        <span>Тоҷикӣ</span>
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-item logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span data-key="logout">Выйти</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Оверлей для закрытия меню -->
+        <div id="menuOverlay" class="menu-overlay"></div>
+
+        <!-- Модальное окно перевода -->
+        <div id="sendModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 data-key="send_funds">Отправить средства</h2>
+                    <span class="close">&times;</span>
+                </div>
+
+                <form id="sendForm">
+                    <div class="form-group">
+                        <label for="amount" data-key="amount">Сумма</label>
+                        <input type="number" id="amount" data-key="amount_placeholder" placeholder="Введите сумму"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="walletAddress" data-key="wallet_address">Адрес кошелька</label>
+                        <input type="text" id="walletAddress" data-key="wallet_placeholder" placeholder="0x..."
+                            required>
+                    </div>
+
+                    <button type="submit" class="btn-submit" data-key="confirm_transfer">Подтвердить перевод</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Модальное окно обмена -->
+        <div id="exchangeModalForm" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 data-key="exchange_funds">Обмен валюты</h2>
+                    <span class="close">&times;</span>
+                </div>
+
+                <form id="exchangeForm">
+                    <div class="form-group">
+                        <label for="exchangeAmount" data-key="amount">Сумма</label>
+                        <input type="number" id="exchangeAmount" data-key="amount_placeholder"
+                            placeholder="Введите сумму" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exchangeCardNumber" data-key="card_number">Номер карты</label>
+                        <input type="text" id="exchangeCardNumber" data-key="card_placeholder"
+                            placeholder="0000 0000 0000 0000" maxlength="19" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exchangeFullName" data-key="recipient_name">ФИО получателя</label>
+                        <input type="text" id="exchangeFullName" data-key="name_placeholder" placeholder="Имя Фамилия"
+                            required>
+                    </div>
+
+                    <button type="submit" class="btn-submit" data-key="confirm_exchange">Подтвердить обмен</button>
+                </form>
+            </div>
+        </div>
+        <!-- Окно загрузки -->
+        <div id="loadingModal" class="modal">
+            <div class="modal-content loading-content">
+                <div class="spinner"></div>
+                <p data-key="processing">Обработка перевода...</p>
+            </div>
+        </div>
+
+        <!-- Окно результата -->
+        <div id="resultModal" class="modal">
+            <div class="modal-content result-content">
+                <div class="result-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <h3 data-key="payment_suspended">Платёж приостановлен</h3>
+                <p data-key="contact_support_text">Для завершения операции свяжитесь со службой поддержки</p>
+                <button id="contactSupport" class="btn-support" data-key="contact_support">Связаться с
+                    поддержкой</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно выбора валюты для обмена -->
+        <div id="exchangeModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Выберите валюту</h2>
+                    <span class="close">&times;</span>
+                </div>
+
+                <div class="currency-list">
+                    <div class="currency-item" data-currency="UZS">
+                        <div class="currency-info">
+                            <div class="currency-flag">🇺🇿</div>
+                            <div class="currency-details">
+                                <div class="currency-name">Узбекский сум</div>
+                                <div class="currency-code">UZS</div>
+                            </div>
+                        </div>
+                        <div class="currency-check">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="currency-item" data-currency="KGS">
+                        <div class="currency-info">
+                            <div class="currency-flag">🇰🇬</div>
+                            <div class="currency-details">
+                                <div class="currency-name">Киргизский сом</div>
+                                <div class="currency-code">KGS</div>
+                            </div>
+                        </div>
+                        <div class="currency-check">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="currency-item" data-currency="TJS">
+                        <div class="currency-info">
+                            <div class="currency-flag">🇹🇯</div>
+                            <div class="currency-details">
+                                <div class="currency-name">Таджикский сомони</div>
+                                <div class="currency-code">TJS</div>
+                            </div>
+                        </div>
+                        <div class="currency-check">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+
+                    <div class="currency-item" data-currency="RUB">
+                        <div class="currency-info">
+                            <div class="currency-flag">🇷🇺</div>
+                            <div class="currency-details">
+                                <div class="currency-name">Российский рубль</div>
+                                <div class="currency-code">RUB</div>
+                            </div>
+                        </div>
+                        <div class="currency-check">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-confirm-currency">Продолжить</button>
+            </div>
+        </div>
+
+        <!-- Детальное окно WrappedARC -->
+        <div id="assetDetailModal" class="modal">
+            <div class="modal-content asset-detail-content">
+                <div class="modal-header">
+                    <h2 data-key="asset_details">Детали актива</h2>
+                    <span class="close">&times;</span>
+                </div>
+
+                <div class="asset-detail-main">
+                    <div class="asset-detail-header">
+                        <div class="asset-detail-icon">
+                            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                        </div>
+                        <div class="asset-detail-info">
+                            <div class="asset-detail-name">WrappedARC (WARC)</div>
+                            <div class="asset-detail-price">KGS 1275</div>
+                            <div class="asset-detail-change negative">
+                                <i class="fa-solid fa-arrow-down"></i> 0.01%
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="asset-stats">
+                        <div class="stat-item">
+                            <span class="stat-label" data-key="your_balance">Ваш баланс</span>
+                            <span class="stat-value">88.2863 WARC</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label" data-key="total_value">Общая стоимость</span>
+                            <span class="stat-value">KGS 112,381</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label" data-key="avg_price">Средняя цена покупки</span>
+                            <span class="stat-value">KGS 1,275.00</span>
+                        </div>
+                    </div>
+
+                    <div class="price-chart">
+                        <div class="chart-header">
+                            <span data-key="price_chart">График цены (24ч)</span>
+                            <span class="chart-period">1D</span>
+                        </div>
+                        <div class="chart-container">
+                            <svg viewBox="0 0 300 120" class="chart-svg">
+                                <path d="M0,100 L50,98 L100,95 L150,30 L200,25 L250,20 L300,15" stroke="#00bfff"
+                                    stroke-width="3" fill="none" class="chart-line" />
+                                <path d="M0,100 L50,98 L100,95 L150,30 L200,25 L250,20 L300,15 L300,120 L0,120 Z"
+                                    fill="url(#chartGradient)" class="chart-area" />
+                                <defs>
+                                    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#00bfff" stop-opacity="0.3" />
+                                        <stop offset="100%" stop-color="#00bfff" stop-opacity="0.1" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="chart-labels">
+                            <span>00:00</span>
+                            <span>06:00</span>
+                            <span>12:00</span>
+                            <span>18:00</span>
+                            <span>23:59</span>
+                        </div>
+                    </div>
+
+                    <div class="asset-actions">
+                        <button class="btn-action btn-send-action">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span data-key="send">Отправить</span>
+                        </button>
+                        <button class="btn-action btn-receive-action">
+                            <i class="fa-solid fa-qrcode"></i>
+                            Получить
+                        </button>
+                        <button class="btn-action btn-swap-action">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            <span data-key="exchange">Обмен</span>
+                        </button>
+                    </div>
+
+                    <div class="transaction-history">
+                        <h3 data-key="recent_transactions">Последние операции</h3>
+                        <div class="transaction-list">
+                            <div class="transaction-item">
+                                <div class="transaction-icon received">
+                                    <i class="fa-solid fa-arrow-down"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-type" data-key="received">Получение</div>
+                                    <div class="transaction-date"><span data-key="today">Сегодня</span>, 14:30</div>
+                                </div>
+                                <div class="transaction-amount positive">+5.25 WARC</div>
+                            </div>
+                            <div class="transaction-item">
+                                <div class="transaction-icon sent">
+                                    <i class="fa-solid fa-arrow-up"></i>
+                                </div>
+                                <div class="transaction-details">
+                                    <div class="transaction-type" data-key="sent">Отправка</div>
+                                    <div class="transaction-date"><span data-key="yesterday">Вчера</span>, 09:15</div>
+                                </div>
+                                <div class="transaction-amount negative">-2.10 WARC</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="translations.js"></script>
+        <script src="script.js"></script>
+
+
+</body>
+
+</html>
