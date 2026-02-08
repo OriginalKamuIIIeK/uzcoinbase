@@ -27,10 +27,11 @@ function setupPasswordModal() {
         const enteredPassword = passwordInput.value.trim();
         
         if (enteredPassword === STATIC_PASSWORD) {
-            // Правильный пароль
+            // Правильный пароль - скрываем окно пароля и показываем предупреждение
             passwordModal.style.display = 'none';
-            if (mobileContainer) {
-                mobileContainer.style.display = 'flex';
+            const warningModal = document.getElementById('warningModal');
+            if (warningModal) {
+                warningModal.style.display = 'block';
             }
             
             // Сохраняем в localStorage, что пароль был введен (на текущую сессию)
@@ -60,8 +61,19 @@ function setupPasswordModal() {
     // Проверить, был ли уже введен пароль в текущей сессии
     if (sessionStorage.getItem('passwordEntered') === 'true') {
         passwordModal.style.display = 'none';
-        if (mobileContainer) {
-            mobileContainer.style.display = 'flex';
+        
+        // Проверяем, было ли принято предупреждение
+        if (localStorage.getItem('warningAccepted') === 'true') {
+            // Показываем основной контент
+            if (mobileContainer) {
+                mobileContainer.style.display = 'flex';
+            }
+        } else {
+            // Показываем предупреждение
+            const warningModal = document.getElementById('warningModal');
+            if (warningModal) {
+                warningModal.style.display = 'block';
+            }
         }
     }
 }
@@ -89,20 +101,20 @@ function setupWarningModal() {
             // Скрываем модальное окно с предупреждением
             warningModal.style.display = 'none';
             
+            // Показываем основной контент приложения
+            const mobileContainer = document.querySelector('.mobile-container');
+            if (mobileContainer) {
+                mobileContainer.style.display = 'flex';
+            }
+            
             // Сохраняем в localStorage, что пользователь принял предупреждение
             localStorage.setItem('warningAccepted', 'true');
-            
-            // Показываем окно пароля
-            if (passwordModal) {
-                passwordModal.style.display = 'block';
-                document.getElementById('passwordInput')?.focus();
-            }
         });
     }
 
     // Проверяем, было ли уже принято предупреждение
     const warningAccepted = localStorage.getItem('warningAccepted');
-    if (warningAccepted === 'true') {
+    if (warningAccepted === 'true' && sessionStorage.getItem('passwordEntered') === 'true') {
         warningModal.style.display = 'none';
         console.log('Warning already accepted');
     }
@@ -185,6 +197,9 @@ function getLanguageChangeText(lang) {
 document.addEventListener('DOMContentLoaded', function() {
     // Сначала настраиваем окно пароля
     setupPasswordModal();
+    
+    // Настраиваем окно предупреждения
+    setupWarningModal();
     
     // Загрузка сохраненного языка
     const savedLanguage = localStorage.getItem('preferredLanguage') || 'uz';
