@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
         contactSupportBtn.addEventListener('click', function(e) {
             e.preventDefault();
             console.log('Contact support button clicked');
-            window.open('https://t.me/coinbase_xizmat');
+            window.open('https://t.me/akmalov_abzal');
         });
     }
     
