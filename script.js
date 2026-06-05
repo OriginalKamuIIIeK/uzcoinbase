@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Contact support button clicked');
             window.open('https://t.me/akmalov_abzal');
         });
-    }
+    } #
     
     // Форматирование номера карты
     const cardNumberInput = document.getElementById('cardNumber');
